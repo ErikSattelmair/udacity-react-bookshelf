@@ -8,7 +8,7 @@ class Bookshelf extends Component {
     }
   	
   	createBookElements(books) {
-    	return books.map(book => <Book book={book} onCategoryChanged={this.props.onCategoryChanged} />)
+    	return books.map(book => <Book key={book.id} book={book} onCategoryChanged={this.props.onCategoryChanged} />)
     }
   	
 	render() {

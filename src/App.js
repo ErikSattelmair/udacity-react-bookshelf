@@ -8,8 +8,8 @@ class BooksApp extends React.Component {
   	books: []
   }
 
-  componentDidMount() {
-  	BooksAPI.getAll().then(fetchedBooks => {
+  fetchAndUpdateBooks() {
+  	 BooksAPI.getAll().then(fetchedBooks => {
     	console.log(fetchedBooks)
       	this.setState({
         	books: fetchedBooks
@@ -17,8 +17,19 @@ class BooksApp extends React.Component {
     })
   }
 
-  onCategoryChanged = (evt) => {
-  	console.log(evt.target.value)
+  componentDidMount() {
+ 	this.fetchAndUpdateBooks()
+  }
+
+  onCategoryChanged = (evt, book) => {
+    const selectedShelf = evt.target.value
+    
+  	if(selectedShelf !== book.shelf) {
+    	BooksAPI.update(book, selectedShelf).then(res => {
+        	this.fetchAndUpdateBooks()
+        })
+    }
+    
   }
 
   render() {

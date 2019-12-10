@@ -9,7 +9,7 @@ const Book = (props) => {
       <div className="book">
           <div className="book-top">
               <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${props.book.imageLinks.smallThumbnail})`}}></div>
-              <BookCategoryChanger onCategoryChanged={props.onCategoryChanged} category={props.book.category} />
+              <BookCategoryChanger onCategoryChanged={props.onCategoryChanged} book={props.book} />
         </div>
         <div className="book-title">{props.book.title}</div>
         <Authors authors={props.book.authors} />
