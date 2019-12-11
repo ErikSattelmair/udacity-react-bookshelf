@@ -12,7 +12,6 @@ class BooksApp extends React.Component {
 
   fetchAndUpdateBooks() {
   	 BooksAPI.getAll().then(fetchedBooks => {
-    	console.log(fetchedBooks)
       	this.setState({
         	books: fetchedBooks
         })

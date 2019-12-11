@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Authors extends Component {
 
   	createAuthors(authors) {
-    	return authors.map((author, index) => <p key={index}>{author}</p>)
+    	return authors.map((author, index) => <div style={{verticalAlign: 'top'}} key={index}>{author}</div>)
     }
   
 	render() {
