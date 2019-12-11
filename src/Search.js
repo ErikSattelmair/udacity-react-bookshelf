@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
+import PropTypes from 'prop-types';
 
 class Seach extends Component {
 	
@@ -70,6 +71,11 @@ class Seach extends Component {
           </div>
         )
     }
+}
+
+Seach.propTypes = {
+	onCategoryChanged: PropTypes.func.isRequired,
+  	booksOnShelfs: PropTypes.array.isRequired,
 }
 
 export default Seach

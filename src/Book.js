@@ -1,6 +1,7 @@
 import React from 'react'
 import BookCategoryChanger from './BookCategoryChanger'
 import Authors from './Authors'
+import PropTypes from 'prop-types';
 
 const Book = (props) => {
   
@@ -18,7 +19,11 @@ const Book = (props) => {
       </div>
 	</li>
   )
-  
+}
+
+Book.propTypes = {
+	book: PropTypes.object.isRequired,
+	onCategoryChanged: PropTypes.func.isRequired 
 }
 
 export default Book

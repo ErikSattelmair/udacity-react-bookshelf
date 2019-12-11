@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 class Authors extends Component {
 
@@ -13,8 +14,10 @@ class Authors extends Component {
       		</div>
     	)
 	}
+}
 
-  
+Authors.propTypes = {
+	authors: PropTypes.array.isRequired
 }
 
 export default Authors

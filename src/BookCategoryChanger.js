@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const BookCategoryChanger = (props) => {
 
@@ -13,7 +14,11 @@ const BookCategoryChanger = (props) => {
 		</select>
 	  </div>
   	)
-  
+}
+
+BookCategoryChanger.propTypes = {
+	onCategoryChanged: PropTypes.func.isRequired,
+  	book: PropTypes.object.isRequired
 }
 
 export default BookCategoryChanger
