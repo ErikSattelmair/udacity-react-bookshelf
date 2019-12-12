@@ -23,7 +23,8 @@ class Seach extends Component {
             })
         } else {
           	const booksOnShelfs = this.props.booksOnShelfs
-          	
+          	let resultSearchQuery = []
+            
         	BooksAPI.search(searchTerm, 10).then(res => {
                 if(res.error === undefined) {
                   	res.forEach(book => {
@@ -34,10 +35,14 @@ class Seach extends Component {
                         }
                     })
                   	
-                	this.setState({
-                		foundBooks: res
-                	})
+                  	resultSearchQuery = res
+                } else {
+                	resultSearchQuery = []
                 }
+              
+            	this.setState({
+					foundBooks: resultSearchQuery
+        		})
             })
         }
     }
