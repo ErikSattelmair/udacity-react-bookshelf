@@ -9,9 +9,20 @@ class Seach extends Component {
   	state = {
     	foundBooks: []
     }
-  	
+
 	createBookList = (books) => {
-    	return books.map(book => <Book key={book.id} book={book} onCategoryChanged={this.props.onCategoryChanged} />)
+      	const copyOfFoundBooks = books
+      	
+        copyOfFoundBooks.forEach((book) => {
+        	const found = this.props.booksOnShelfs.find((element) => element.id === book.id)	
+        	if(found !== undefined) {
+            	book.shelf = found.shelf
+            }
+        })	
+      
+    	return copyOfFoundBooks.map(book => 
+			<Book key={book.id} book={book} onCategoryChanged={this.props.onCategoryChanged} />
+        )
     }
 
   	searchTermEntered = (evt) => {
